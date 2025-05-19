@@ -1,0 +1,27 @@
+.card-header {
+    background-color: #5c636a !important;
+}
+
+
+.events{
+    pointer-events: none;
+}
+
+.ml-2{
+    display: inline;
+    margin-left: 2px;
+}
+
+.checkbox-group{
+    display: flex;
+    gap: 10px;
+}
+
+.disbleField{
+    color: darkgray;
+}
+
+
+input[readonly] {
+    border: none;
+}

@@ -1,0 +1,42 @@
+  // .gauge-container {
+  //   width: 100%;
+  //   max-width: 300px;
+  //   margin: auto;
+  // }
+  
+  // svg {
+  //   width: 100%;
+  //   height: 180px;
+  //   // height: auto;
+  //   display: block;
+  // }
+  
+  // .tick {
+  //   stroke: #444;
+  //   stroke-width: 0.5;
+  // }
+  
+  // .label {
+  //   font-size: 5px;
+  //   fill: #222;
+  // }
+  
+  // .pointer {
+  //   stroke: gray;
+  //   stroke-width: 2;
+  // }
+
+  ::ng-deep ngx-gauge.ngx-gauge-meter {
+    height: 150px;
+  }
+
+  ::ng-deep ngx-gauge.ngx-gauge-meter .reading-block {
+    overflow: visible;
+  }
+
+  ::ng-deep ngx-gauge.ngx-gauge-meter .reading-label {
+    font-size: 12px !important;
+    font-weight: bold;
+    font-family: Mada, sans-serif;
+    margin-top: -30px;
+  }  

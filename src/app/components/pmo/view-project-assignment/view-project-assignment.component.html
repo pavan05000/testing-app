@@ -1,0 +1,190 @@
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <p-toast></p-toast>
+            <div class="row">
+                <div class="col">
+                    <div class="h-100">
+                        <div class="row row-body">
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                                        <h4 class="mb-0">Project Details</h4>
+                                        <a (click)="navigateToEditProject()" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Project">
+                                            <i class="fa-solid fa-pen-to-square align-middle text-white all-icons"></i> </a>
+                                    </div>
+                                    <div class="card-body">
+                                            <div class="row gy-4 readonly-form">
+                                                <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Project Code</label>
+                                                        <div class="form-control-plaintext">
+                                                            {{ projects.project_code }}
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                                <!-- <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Project Name</label>
+                                                        <div class="form-control-plaintext truncated-text">
+                                                            {{ projects.project_name }}
+                                                        </div>
+                                                    </div> 
+                                                </div> -->
+                                                <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Project Description </label>
+                                                        <div class="form-control-plaintext truncated-text">
+                                                            {{ projects.project_description }}
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                                <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Project Type </label>
+                                                        <div class="form-control-plaintext">
+                                                            {{ projects.project_type }}
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                                <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Project Category </label>
+                                                        <div class="form-control-plaintext">
+                                                            {{ projects.project_category }}
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                                <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Project Status </label>
+                                                        <div class="form-control-plaintext">
+                                                            {{ projects.project_status  == 'active' ? 'Active' : 
+                                                            projects.project_status  == 'inactive' ? 'Inactive' :
+                                                            projects.project_status  == 'open' ? 'Open' :
+                                                            projects.project_status  == 'completed' ? 'Completed' : projects.project_status}}
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                                <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Project Manager </label>
+                                                        <div class="form-control-plaintext">
+                                                            {{ projects.project_manager }}
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                                <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Delivery Head </label>
+                                                        <div class="form-control-plaintext">
+                                                            {{ projects.delivery_head }}
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                                <!-- <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Management </label>
+                                                        <div class="form-control-plaintext">
+                                                            {{ projects.management }}
+                                                        </div>
+                                                    </div> 
+                                                </div> -->
+                                                
+                                                <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Client Name </label>
+                                                        <div class="form-control-plaintext truncated-text">
+                                                            {{ projects.client_name }}
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                                <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Project Region </label>
+                                                        <div class="form-control-plaintext">
+                                                            {{ projects.project_region }}
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                                <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Project Country</label>
+                                                        <div class="form-control-plaintext">
+                                                            {{ projects.project_country }}
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                                <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Delivery Model</label>
+                                                        <div class="form-control-plaintext">
+                                                            {{ projects.delivery_model }}
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                                <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Project Start Date</label>
+                                                        <div class="form-control-plaintext">
+                                                            {{ projects.from_date | date: 'dd-MM-yyyy' }}
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                                <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Project End Date</label>
+                                                        <div class="form-control-plaintext">
+                                                            {{ projects.to_date  | date: 'dd-MM-yyyy'}}
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                                <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Budgeted Hours </label>
+                                                        <div class="form-control-plaintext">
+                                                            {{ projects.budgeted_hours }}
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                                <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Allocated Hours </label>
+                                                        <div class="form-control-plaintext">
+                                                            {{ projects.allocated_hours }}
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                                <div class="col-xxl-4 col-md-4">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Worked Hours </label>
+                                                        <div class="form-control-plaintext">
+                                                            {{ projects.worked_hours }}
+                                                        </div>
+                                                    </div> 
+                                                </div>                                                
+                                                <div class="col-xxl-4 col-md-8">
+                                                    <div>
+                                                        <label for="iconInput" class="form-label">Notes</label>
+                                                        <div class="form-control-plaintext">
+                                                            {{ projects.notes }}
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                            </div>   
+                                            <div class="row mt-4">
+                                                <div class="col text-center">
+                                                    <a (click)="navigateToGrid()" class="btn btn-secondary cancel-btn">Back</a>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

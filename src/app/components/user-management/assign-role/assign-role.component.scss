@@ -1,0 +1,90 @@
+.card-header {
+  background-color: #5c636a !important;
+}
+
+
+::ng-deep p-calendar .p-calendar
+ {
+    width: 100% !important;
+}
+
+// ::ng-deep p-calendar .p-calendar input
+//  {
+//     margin-left: 30px !important;
+// }
+
+::ng-deep p-calendar .p-calendar input {
+    cursor: pointer
+}
+
+::ng-deep .p-dropdown-items {
+    padding: 0px !important;
+}
+
+::ng-deep p-dropdown p-overlay .p-overlay.p-component {
+    width: 100%;
+}
+
+::ng-deep p-dropdown .p-dropdown-label.p-inputtext {
+    font-size: 12px;
+    // font-size: 14px;
+}
+
+::ng-deep .p-multiselect {
+    line-height: 1 !important;
+    width: 19rem !important;
+    font-size: 12px !important;
+    font-family: Mada, sans-serif;
+    // font-size: 14px !important;
+    // font-family: Roboto, "Helvetica Neue", sans-serif;
+ }
+ .multiselectdropdown .p-multiselect-label {
+    padding-left: 0 !important;
+  }
+  .multiselectdropdown {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+
+  select option {
+    padding-left: 0 !important; /* Remove padding from the options */
+  }
+  .form-label{
+    font-weight: bold !important;
+    // font-weight: 450 !important;
+  }
+  ::ng-deep .p-multiselect-panel .p-multiselect-items .p-multiselect-item {
+    font-family: Mada, sans-serif !important;
+    font-size: 12px !important;
+    // font-family: Roboto, "Helvetica Neue", sans-serif !important;
+    // font-size: 14px !important;
+ }
+
+ ::ng-deep .p-dropdown-items {
+  padding: 0px !important;
+}
+
+::ng-deep p-dropdown p-overlay .p-overlay.p-component {
+  width: 100%;
+}
+
+::ng-deep p-dropdown .p-dropdown-label.p-inputtext {
+  font-size: 12px;
+  // font-size: 14px;
+  padding-left: 0 !important;
+}
+::ng-deep .p-dropdown {
+  line-height: 1 !important;
+  width: 19rem !important;
+  font-size: 12px !important;
+  font-family: Mada, sans-serif;
+  // font-size: 14px !important;
+  // font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+::ng-deep .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  font-size: 12px !important;
+  font-family: Mada, sans-serif;
+  // font-family: Roboto, "Helvetica Neue", sans-serif !important;
+  // font-size: 14px !important;
+}
+  

@@ -1,0 +1,170 @@
+<div class="row">
+    <div class="col">
+        <div class="h-100">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card" *ngIf="employeeSummaryReport.length>0">
+                        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                            <h4 class="mb-0">Employee Summary Report</h4>
+                            <a  (click)="exportToExcel()" data-bs-toggle="tooltip" data-bs-placement="top" title="Download Excel">
+                                <i class="fas fa-download text-white all-icons"></i>
+                              </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive table-card">                                        
+                                <p-table [value]="employeeSummaryReport">
+                                    <ng-template pTemplate="header">
+                                        <tr>
+                                            <th>Employee Id</th>
+                                            <th>Employee Name</th>
+                                            <th>Designation</th>
+                                            <th>Country</th>
+                                            <th class="right-align">Month</th>
+                                            <th class="right-align">Total Hours per Month</th>
+                                            <th class="right-align">Worked Hours</th>
+                                            <th class="right-align">Leave Hours</th>
+                                            <th class="right-align">Holiday Hours</th>
+                                            <th class="right-align">Total Hours Booked</th>
+                                            <th class="right-align">Balance Hours to be Booked</th>
+                                            <th class="right-align">Approved Hours</th>
+                                            <th class="right-align">Approved Hours Difference</th>                                            
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-employee>
+                                        <tr>
+                                            <td>{{employee.employee_id}}</td>
+                                            <td>{{employee.employee_name}}</td>
+                                            <td>{{employee.designation}}</td>
+                                            <td>{{employee.country}}</td>
+                                            <td class="right-align">{{employee.month}}</td>
+                                            <td class="right-align">{{employee.total_hours}}</td>
+                                            <td class="right-align">{{employee.total_worked_hours}}</td>
+                                            <td class="right-align">{{employee.leave_hours}}</td>
+                                            <td class="right-align">{{employee.holiday_hours}}</td>
+                                            <td class="right-align">{{employee.total_booked_hours}}</td>                                            
+                                            <td class="right-align">{{employee.balance_hours}}</td>                                            
+                                            <td class="right-align">{{employee.approved_hours}}</td>                                            
+                                            <td class="right-align" [ngClass]="{'abnormal': employee.approved_diff != '00:00'}">
+                                                {{employee.approved_diff}}
+                                            </td>                                            
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="card"> -->
+                    <div class="card" *ngIf="employeeSummaryProjectWiseReport.length>0">
+                        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                            <h4 class="mb-0">Employee Summary - Project Wise Report </h4>
+                            <a  (click)="exportToExcel()" data-bs-toggle="tooltip" data-bs-placement="top" title="Download Excel">
+                                <i class="fas fa-download text-white all-icons"></i>
+                              </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive table-card">                                        
+                                <p-table [value]="employeeSummaryProjectWiseReport">
+                                    <ng-template pTemplate="header">
+                                        <tr>
+                                            <th>Employee Id</th>
+                                            <th>Employee Name</th>
+                                            <th>Project</th>
+                                            <th>Project Manager</th>
+                                            <!-- <th>Reporting Manager</th> -->
+                                            <th class="right-align">Month</th>
+                                            <th class="right-align">Worked Hours</th>
+                                            <th class="right-align">Leave Hours</th>
+                                            <th class="right-align">Holiday Hours</th>
+                                            <th class="right-align">Total Hours Booked</th>                                            
+                                            <th class="right-align">Approved Hours</th>
+                                            <th class="right-align">Approved Hours Difference</th> 
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-employee>
+                                        <tr>
+                                            <td>{{employee.employee_id}}</td>
+                                            <td>{{employee.employee_name}}</td>
+                                            <td>{{employee.project_name}}</td>
+                                            <td>{{employee.project_manager}}</td>
+                                            <!-- <td>{{employee.reporting_manager}}</td> -->
+                                            <td class="right-align">{{employee.month}}</td>
+                                            <td class="right-align">{{employee.worked_hours}}</td>
+                                            <td class="right-align">{{employee.leave_hours}}</td>
+                                            <td class="right-align">{{employee.holiday_hours}}</td>
+                                            <td class="right-align">{{employee.total_booked_hours}}</td>
+                                            <td class="right-align">{{employee.approved_hours}}</td> 
+                                            <td class="right-align" [ngClass]="{'abnormal': employee.approved_diff != '00:00'}">
+                                                {{employee.approved_diff}}
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="emptymessage">
+                                        <tr>
+                                            <td colspan="10" class="text-center">No data found</td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="card"> -->
+                    <div class="card" *ngIf="employeeDetailReport.length>0">
+                        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                            <h4 class="mb-0">Employee Detailed Report </h4>
+                            <a  (click)="exportToExcel()" data-bs-toggle="tooltip" data-bs-placement="top" title="Download Excel">
+                                <i class="fas fa-download text-white all-icons"></i>
+                              </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive table-card">                                        
+                                <p-table [value]="employeeDetailReport" [sortField]="'date'">
+                                    <ng-template pTemplate="header">
+                                        <tr>
+                                            <th>Employee Id</th>
+                                            <th>Employee Name</th>
+                                            <th>Project</th>
+                                            <th>Project Manager</th>
+                                            <!-- <th>Reporting Manager</th> -->
+                                            <th pSortableColumn="date">Date<p-sortIcon field="date" /></th>
+                                            <th class="right-align">Worked Hours</th>
+                                            <th class="right-align">Leave Hours</th>
+                                            <th class="right-align">Holiday Hours</th>
+                                            <th class="right-align">Total Hours Booked</th>                                            
+                                            <th class="right-align">Approved Hours</th>
+                                            <th class="right-align">Approved Hours Difference</th> 
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-employee>
+                                        <tr>
+                                            <td>{{employee.employee_id}}</td>
+                                            <td>{{employee.employee_name}}</td>
+                                            <td>{{employee.project_name}}</td>
+                                            <td>{{employee.project_manager}}</td>
+                                            <!-- <td>{{employee.reporting_manager}}</td> -->
+                                            <td>{{employee.date | date: 'dd-MM-yyyy'}}</td>
+                                            <td class="right-align">{{employee.worked_hours}}</td>
+                                            <td class="right-align">{{employee.leave_hours}}</td>
+                                            <td class="right-align">{{employee.holiday_hours}}</td>
+                                            <td class="right-align">{{employee.total_booked_hours}}</td>
+                                            <td class="right-align">{{employee.approved_hours}}</td> 
+                                            <td class="right-align" [ngClass]="{'abnormal': employee.approved_diff != '00:00'}">
+                                                {{employee.approved_diff}}
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="emptymessage">
+                                        <tr>
+                                            <td colspan="10" class="text-center">No data found</td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </div>
+                        </div>
+                    </div>                                     
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

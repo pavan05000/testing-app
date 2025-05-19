@@ -1,0 +1,103 @@
+<div class="main-container">
+    <div class="page-content">
+        <div class="container-fluid">
+            <p-toast></p-toast>
+            <div class="row">
+                <div class="col">
+                    <div class="h-100">
+                        <div class="row row-body" >
+                            <div class="col-xl-12"> 
+            <div class="card">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0">Utilization Report</h4>
+                </div>
+                <div class="card-body">         
+         <form [formGroup]="projectReportForm">
+            <div class="row">
+                <div class="col">
+                    <div class="h-100">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row gy-4">
+                                            <div class="col-xxl-4 col-md-3">
+                                                <div>
+                                                    <label for="year" class="form-label">Report Type <label class="required-field">*</label></label>
+                                                    <div class="form-icon">
+                                                        <select class="form-select" formControlName="report_type" (change)="onChangeReportType()">
+                                                            <option value="" disabled selected>Report Type </option>
+                                                            <option *ngFor="let type of projectType" [value]="type.name">{{ type.name }}</option>
+                                                        </select>
+                                                     </div>
+                                                    <div *ngIf="getFormControl('report_type')?.invalid && (getFormControl('report_type')?.dirty || getFormControl('report_type')?.touched)" class="text-danger small">
+                                                        <span *ngIf="getFormControl('report_type')?.errors?.['required']">Please Select Report Type</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xxl-4 col-md-3" *ngIf="isProjectCode">
+                                                <label class="form-label">Project Code</label><label class="required-field">*</label>
+                                                <p-multiSelect 
+                                                formControlName="project_code"
+                                                [options]="projects" class="multiselectdropdown"
+                                                optionLabel="formattedLabel" 
+                                                optionValue="project_code" 
+                                                placeholder="Select Project Code"
+                                                styleClass="p-multiselect-styled"
+                                                [panelStyle]="{'width':'100%'}"
+                                                [showClear]="true">
+                                            </p-multiSelect>
+                                            <div *ngIf="getFormControl('project_code')?.invalid && (getFormControl('project_code')?.dirty || getFormControl('project_code')?.touched)" class="text-danger small">
+                                                <span *ngIf="getFormControl('project_code')?.errors?.['required']">Please Select Project Code</span>
+                                            </div>
+                                            <!-- <div *ngIf="isProjectCode" class="text-danger small">
+                                                <span *ngIf="getFormControl('project_code')?.errors?.['required']">Please select Project Code</span>
+                                            </div> -->
+                                            </div>
+                                            <div class="col-xxl-4 col-md-3" *ngIf="isEmployeeCode">
+                                                <label class="form-label">Employee Code</label><label class="required-field">*</label>
+                                                <p-multiSelect 
+                                                formControlName="employee_code"
+                                                [options]="employeeDetails" class="multiselectdropdown"
+                                                optionLabel="employee_codewithName" 
+                                                optionValue="employee_code" 
+                                                placeholder="Select Employee Code"
+                                                styleClass="p-multiselect-styled"
+                                                [panelStyle]="{'width':'100%'}"
+                                                [showClear]="true">
+                                            </p-multiSelect>
+                                            <div *ngIf="getFormControl('employee_code')?.invalid && (getFormControl('employee_code')?.dirty || getFormControl('employee_code')?.touched)" class="text-danger small">
+                                                <span *ngIf="getFormControl('employee_code')?.errors?.['required']">Please Select Employee Code</span>
+                                            </div>
+                                            </div>
+                                            <div class="col-12 text-center mt-4">
+                                                <button type="submit" class="btn btn-primary" (click)="onSubmit()" [disabled]="!projectReportForm.valid">Submit</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+       <hr>
+      
+ <div *ngIf="isProjectCode">
+    <app-project-grid [projectSummaryReport]="projectSummaryReport" [projectDetailReport]="projectDetailReport"></app-project-grid>
+ </div>
+
+ <div *ngIf="isEmployeeCode">
+    <app-employee-grid [employeeSummaryReport]="employeeSummaryReport" [employeeDetailReport]="employeeDetailReport"></app-employee-grid>
+ </div>
+    
+ </div> 
+</div>
+</div>
+</div>
+</div></div>
+</div></div>
+</div></div>
+

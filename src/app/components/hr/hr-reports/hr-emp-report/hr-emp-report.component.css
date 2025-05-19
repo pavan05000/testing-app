@@ -1,0 +1,16 @@
+.card-header {
+    background-color: #5c636a !important;
+}
+
+::ng-deep .p-datatable-thead tr th.right-align,
+::ng-deep .p-datatable-tbody tr td.right-align {
+    text-align: right !important;
+}
+
+::ng-deep .p-datatable-tbody tr td.abnormal {
+    color: red;
+}
+
+/* ::ng-deep .p-datatable-thead tr th {
+    text-wrap: nowrap;
+} */

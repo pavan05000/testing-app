@@ -1,0 +1,118 @@
+.card-header {
+    background-color: #5c636a !important;
+  }
+
+::ng-deep .p-datatable-wrapper .p-datatable-thead th p-sorticon svg {
+    width: 10px;
+}
+
+::ng-deep .p-datatable-wrapper .p-datatable-thead th {
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    // font-size: 14px !important;
+    padding: .75rem !important;
+}
+
+::ng-deep .project-team .p-datatable-header {
+    display: flex;
+    background-color: #5c636a !important;
+}
+
+::ng-deep .p-datatable-header .search {
+    padding-right: 10px;
+}
+
+::ng-deep .p-datatable-header .search input {
+    padding: 6px;
+}
+
+::ng-deep .p-datatable-wrapper {
+    font-size: 0.85rem;
+}
+
+::ng-deep .p-datatable-tbody a.site-update-link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.row-hover:hover {
+    background-color: #e0e0e0;  /* Light gray on hover */
+}
+
+.tdInput{
+    padding: 8px !important; 
+    border: 1px solid #dee2e6 !important;
+}
+
+.p-dialog {
+    width: 500px;  
+  }
+  
+  .p-button-danger {
+    background-color: #f44336;
+    border-color: #f44336;
+  }
+  
+  .p-button-danger:hover {
+    background-color: #d32f2f;
+    border-color: #d32f2f;
+  }
+
+::ng-deep .project-team .p-dropdown {
+    width: 9rem !important;
+}
+
+::ng-deep p-calendar .p-calendar input
+ {
+    margin-left: 0px !important;
+}
+
+::ng-deep .p-dropdown.p-disabled {
+    background-color: var(--bs-secondary-bg);
+    opacity: 1;
+}
+
+::ng-deep .project-team .p-overlay.p-component {
+    // top: 44px !important;
+    // top: -35px !important;
+    width: 250% !important;
+}
+
+::ng-deep p-table .p-datatable.p-component .p-datatable-wrapper {
+    min-height: 300px !important;
+}
+
+.project-team .search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 300px;
+
+    .search-icon {
+        position: absolute;
+        left: 10px;
+        font-size: 10px;
+        color: gray;
+    }
+
+    input {
+        font-size: 12px;
+        padding-left: 30px !important;
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid gray;
+        padding: 5px;
+    }           
+}
+
+.project-team .add {
+    margin: 5px 10px 0px 0px;
+}
+
+::ng-deep .p-datatable-tbody tr td.phase-col select {
+    width: 100% !important;
+}
+
+::ng-deep .p-datatable-tbody tr td.pro-role-col select {
+    width: 100% !important;
+}

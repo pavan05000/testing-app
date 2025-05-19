@@ -1,0 +1,123 @@
+<div class="row">
+    <div class="col">
+        <div class="h-100">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card" *ngIf="employeeSummaryReport.length>0">
+                        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                            <h4 class="mb-0">Employee Summary Report</h4>
+                            <a  (click)="exportToExcel()" data-bs-toggle="tooltip" data-bs-placement="top" title="Download Excel">
+                                <i class="fas fa-download text-white all-icons"></i>
+                              </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive table-card">                                        
+                                <p-table [value]="employeeSummaryReport">
+                                    <ng-template pTemplate="header">
+                                        <tr>
+                                            <th>Employee Name</th>
+                                            <th>Country</th>
+                                            <th>Project Region</th>
+                                            <th>Project Country</th>
+                                            <th>Project Code</th>
+                                            <th>Description</th>
+                                            <th>Project Type</th>
+                                            <th>Delivery Model</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>Status</th>
+                                            <th class="right-align">Total Allocated Hours</th>
+                                            <th class="right-align">Total Worked Hours</th>
+                                            <th class="right-align">Billable Hours</th>
+                                            <th class="right-align">Non-Billable Hours</th>
+                                            <th class="right-align">Utilization %</th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-employee>
+                                        <tr>
+                                            <td>{{employee.employee_name}}</td>
+                                            <td>{{employee.country}}</td>
+                                            <td>{{employee.project_region}}</td>
+                                            <td>{{employee.project_country}}</td>
+                                            <td>{{employee.project_code}}</td>
+                                            <td>{{employee.description}}</td>
+                                            <td>{{employee.project_type}}</td>
+                                            <td>{{employee.delivery_model}}</td>
+                                            <td>{{employee.start_date | date: 'dd-MM-yyyy'}}</td>
+                                            <td>{{employee.end_date | date: 'dd-MM-yyyy'}}</td>
+                                            <td>{{employee.project_status}}</td>
+                                            <td class="right-align">{{formatIndianNumber(employee.total_allocated_hours)}}</td>
+                                            <td class="right-align">{{formatIndianNumber(employee.total_worked_hours)}}</td>
+                                            <td class="right-align">{{formatIndianNumber(employee.billable_hours)}}</td>
+                                            <td class="right-align">{{formatIndianNumber(employee.non_billable_hours)}}</td>
+                                            <td class="right-align">{{employee.utilization_percentage}}</td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" *ngIf="employeeDetailReport.length>0">
+                        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                            <h4 class="mb-0">Employee Detailed Report </h4>
+                            <a  (click)="exportToExcel()" data-bs-toggle="tooltip" data-bs-placement="top" title="Download Excel">
+                                <i class="fas fa-download text-white all-icons"></i>
+                              </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive table-card">                                        
+                                <p-table [value]="employeeDetailReport" [sortField]="'task'">
+                                    <ng-template pTemplate="header">
+                                        <tr>
+                                            <th>Employee Name</th>
+                                            <th>Country</th>
+                                            <th>Project Region</th>
+                                            <th>Project Country</th>
+                                            <th>Project Code</th>
+                                            <th>Description</th>
+                                            <th>Project Type</th>
+                                            <th>Delivery Model</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>Status</th>
+                                            <th pSortableColumn="task">Phase<p-sortIcon field="task" /></th>
+                                            <!-- <th>Task</th>  -->
+                                            <th class="right-align">Total Allocated Hours</th>
+                                            <th class="right-align">Total Worked Hours</th>
+                                            <th class="right-align">Billable Hours</th>
+                                            <th class="right-align">Non-Billable Hours</th>
+                                            <th class="right-align">Utilization %</th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-employee>
+                                        <tr>
+                                            <td>{{employee.employee_name}}</td>
+                                            <td>{{employee.country}}</td>
+                                            <td>{{employee.project_region}}</td>
+                                            <td>{{employee.project_country}}</td>
+                                            <td>{{employee.project_code}}</td>
+                                            <td>{{employee.description}}</td>
+                                            <td>{{employee.project_type}}</td>
+                                            <td>{{employee.delivery_model}}</td>
+                                            <td>{{employee.start_date | date: 'dd-MM-yyyy'}}</td>
+                                            <td>{{employee.end_date | date: 'dd-MM-yyyy'}}</td>
+                                            <td>{{employee.project_status}}</td>
+                                            <td>{{employee.task}}</td>
+                                            <td class="right-align">{{formatIndianNumber(employee.total_allocated_hours)}}</td>
+                                            <td class="right-align">{{formatIndianNumber(employee.total_worked_hours)}}</td>
+                                            <td class="right-align">{{formatIndianNumber(employee.billable_hours)}}</td>
+                                            <td class="right-align">{{formatIndianNumber(employee.non_billable_hours)}}</td>
+                                            <td class="right-align">{{employee.utilization_percentage}}</td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+

@@ -1,0 +1,314 @@
+/* Global Styles */
+:root {
+  --main-bg-color: #f8f9fa; /* Assuming a default background */
+  --main-text-color: #333;
+  --main-font-family: Roboto, "Helvetica Neue", sans-serif;
+  --main-font-size: 16px;
+  --main-line-height: 1.6;
+  --tertiary-color: #ced4da; /* Example tertiary color */
+  --hover-bg-color: #e9ecef; /* Example hover color */
+  --button-text-color: #fff; /* Example button text color */
+  --primary-color: #66a7c5; /* Primary color for headers, buttons etc. */
+  --secondary-color: #6b7785; /* Secondary color for cancel button*/
+  --edit-add-color: #405189; /* Color for edit and add links */
+  --edit-icon-color: #20456a; /* Color for edit icon */
+  --required-field-color: red; /* Color for required fields */
+  --disabled-field-color: darkgray;/* color for disabled fields */
+
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--main-font-family) !important;
+  font-size: var(--main-font-size);
+  line-height: var(--main-line-height);
+  color: var(--main-text-color);
+  background-color: var(--main-bg-color);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+input[type="text"],input[type="password"] , input[type="mobile"],input[type="number"],input[type="email"],input[type="date"]{ /* Or use a class selector if you have one */
+  padding-left: 0 !important; /* Remove left padding */
+}
+
+::ng-deep .p-multiselect .p-multiselect-label {
+  padding-left: 0 !important;
+}
+::ng-deep .multiselectdropdown .p-multiselect-label {
+  padding-left: 0 !important;
+}
+::ng-deep  select option {
+  padding-left: 0 !important; /* Remove padding from the options */
+}
+select option {
+  padding-left: 0 !important; /* Remove padding from the options */
+}
+/* Typography */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--main-text-color);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+  color: var(--main-text-color);
+}
+
+h5 {
+  font-size: 1.25rem !important;
+  color: var(--main-text-color);
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--main-text-color);
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  color: var(--main-text-color);
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+@media (max-width: 767px) {
+  nav ul {
+    text-align: center;
+  }
+
+  nav li {
+    display: block;
+    margin: 10px 0;
+  }
+}
+
+/* Responsive Containers */
+@media (min-width: 768px) {
+  .container {
+    width: 85%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    width: 75%;
+  }
+}
+
+/* Page Content */
+.page-content {
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 400px;
+  background-color: var(--main-bg-color);
+}
+
+.page-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.page-content th,
+.page-content td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  color: var(--main-text-color);
+}
+
+.page-content .search-bar {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .page-content {
+    padding: 15px;
+  }
+
+  .page-content th,
+  .page-content td {
+    padding: 6px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Main Content (Responsive) */
+.main-content {
+  transition: all 0.1s ease-out !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  background-color: var(--main-bg-color);
+}
+
+.page-content {
+  padding-bottom: 0;
+}
+
+/* Form Elements */
+select {
+  background-color: var(--main-bg-color);
+  border: 1px solid var(--tertiary-color);
+  padding: 8px;
+  border-radius: 4px;
+}
+
+select option:hover {
+  background-color: var(--hover-bg-color);
+  color: var(--button-text-color);
+}
+
+.form-control {
+  border-radius: 5px;
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+/* Buttons and Links */
+.cancel-btn {
+  margin-right: 5px;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: var(--button-text-color);
+}
+
+.edit a,
+.add a {
+  background-color: var(--edit-add-color);
+  color: var(--button-text-color);
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.submit_btn {
+  padding-top: 1.6rem;
+  padding-left: 32rem;
+}
+
+/* Icons and Pointers */
+.pointer {
+  cursor: pointer;
+}
+
+.edit-icon {
+  color: var(--edit-icon-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  margin-right: 0.3rem;
+}
+
+/* Validation */
+.required-field {
+  color: var(--required-field-color);
+  display: inline;
+}
+
+/* Checkboxes and Radios */
+.terms-checkbox ::ng-deep .p-radiobutton .p-radiobutton-box {
+  transform: scale(0.8);
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 10px;
+}
+
+/* Calendar */
+::ng-deep p-calendar .p-calendar {
+  width: 100% !important;
+}
+
+::ng-deep p-calendar .p-calendar input {
+  margin-left: 30px !important;
+  /*cursor: pointer;*/
+}
+
+.events {
+  pointer-events: none;
+}
+
+/* Utility Classes */
+.ml-2 {
+  display: inline;
+  margin-left: 2px;
+}
+
+.disbleField {
+  color: var(--disabled-field-color);
+  cursor: not-allowed;
+}
+
+/* Angular Deep Styles */
+::ng-deep div .card-header,
+div .card-header {
+  height: 48px !important;
+  font-family: var(--main-font-family) !important;
+  background-color: var(--primary-color) !important;
+  color: var(--button-text-color);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.all-icons {
+  height: 100% !important;
+  font-size: large !important;
+  cursor: pointer !important;
+  display: flex;
+  align-items: center;
+}
+
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  color: var(--button-text-color);
+  border: none;
+}
+
+.form-label{
+  font-weight: bold !important;
+  /* font-weight: 450 !important; */
+}

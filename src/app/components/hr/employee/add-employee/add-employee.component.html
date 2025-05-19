@@ -1,0 +1,177 @@
+<div class="main-container">
+    <div class="page-content">
+        <div class="container-fluid">
+            <p-toast></p-toast>
+            <div class="row">
+                <div class="col">
+                    <div class="h-100">
+                        <div class="row row-body" >
+                            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0">{{ employeeHeaderText }}</h4>
+                    </div>
+        <div class="card-body employee-container">
+            <form [formGroup]="employeeForm" class="row g-3">
+                <!-- <div class="col-md-4">
+                    <label class="form-label">Employee Code <span class="text-danger">*</span></label>
+                    <select class="form-select"  *ngIf="!employee_code" formControlName="employee_code" placeholder="Select Employee Code" 
+                         (change)="onChangeEmployeeCode()">
+                        <option value="" disabled selected>Select Employee Code</option>
+                        <option *ngFor="let user of users" [value]="user.user_id">{{ user.user_id }}</option>
+                    </select>
+                        <input type="text" *ngIf="employee_code" class="form-control" placeholder="Enter Employee Code" formControlName="employee_code"  readonly>
+                    <div *ngIf="getFormControl('employee_code')?.invalid && (getFormControl('employee_code')?.dirty || getFormControl('employee_code')?.touched)" class="text-danger small">
+                        <span *ngIf="getFormControl('employee_code')?.errors?.['required']">Please Select Employee Code</span>
+                    </div>
+                </div> -->
+
+                <div class="col-md-4">
+                    <label class="form-label">Employee Code <span class="text-danger">*</span></label>
+                    <input *ngIf="!employee_code" appNoSpace appAlphanumeric appAllLetterCapital type="text" class="form-control" placeholder="Enter Employee Code" formControlName="employee_code">
+                    <input *ngIf="employee_code" type="text" class="form-control" placeholder="Enter Employee Code" formControlName="employee_code" readonly>
+                    <div *ngIf="getFormControl('employee_code')?.invalid && (getFormControl('employee_code')?.dirty || getFormControl('employee_code')?.touched)" class="text-danger small">
+                        <span *ngIf="getFormControl('employee_code')?.errors?.['required']">Please Enter Employee Code</span>
+                        <span *ngIf="getFormControl('employee_code')?.errors?.['minlength']">
+                            Employee code must be at least 3 characters long
+                        </span>
+                        <span *ngIf="getFormControl('employee_code')?.errors?.['maxlength']">
+                            Employee code cannot exceed 10 characters
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label">Name <span class="text-danger">*</span></label>
+                    <!-- <input type="text" class="form-control name-ellipsis" formControlName="name" placeholder="Enter Name" appNoSpace
+                    appAllowOnlyChar  *ngIf="!getFormControl('employee_code')"> -->
+                    <input type="text" class="form-control " formControlName="name" placeholder="Enter Name" appNoSpace
+                    appAllowOnlyChar appFirstLetterCapital *ngIf="getFormControl('employee_code')">
+                    <div *ngIf="getFormControl('name')?.invalid && (getFormControl('name')?.dirty || getFormControl('name')?.touched)" class="text-danger small">
+                        <span *ngIf="getFormControl('name')?.errors?.['required']">Please Enter Name</span>
+                        <span *ngIf="getFormControl('name')?.errors?.['minlength']">
+                            Name must be at least 3 characters long
+                          </span>
+                          <span *ngIf="getFormControl('name')?.errors?.['maxlength']">
+                            Name maximum length cannot exceed 100 characters
+                          </span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label">Designation <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control name-ellipsis" formControlName="designation" placeholder="Enter Designation" 
+                    appNoSpace  appAlphaNumericSpecialChars appFirstLetterCapital>
+                    <div *ngIf="getFormControl('designation')?.invalid && (getFormControl('designation')?.dirty || getFormControl('designation')?.touched)" class="text-danger small">
+                        <span *ngIf="getFormControl('designation')?.errors?.['required']">Please Enter Designation</span>
+                        <span *ngIf="getFormControl('designation')?.errors?.['minlength']">
+                            Designation must be at least 2 characters long
+                          </span>  
+                        <span *ngIf="getFormControl('designation')?.errors?.['maxlength']">
+                            Designation maximum length can not exceed 100 characters
+                          </span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- <label class="form-label">Country <span class="text-danger">*</span></label> -->
+                    <label for="iconInput" class="form-label">Country<label class="required-field">*</label> </label>                                                    
+                    <div>
+                        <p-dropdown 
+                        [options]="countries" 
+                        optionLabel="name" 
+                        optionValue="name"
+                        placeholder="Select Country" 
+                        [filter]="true" 
+                        filterBy="name" 
+                        formControlName="country">
+                        </p-dropdown>
+                    </div>
+                    <div *ngIf="getFormControl('country')?.invalid && (getFormControl('country')?.dirty || getFormControl('country')?.touched)" class="text-danger small">
+                        <span *ngIf="getFormControl('country')?.errors?.['required']">Please Select Country</span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="iconInput" class="form-label">Band/Grade<label class="required-field">*</label> </label>                                                    
+                    <div>
+                        <p-dropdown 
+                        [options]="bandGrades" 
+                        optionLabel="band" 
+                        optionValue="band"
+                        placeholder="Select Band Grade" 
+                        [filter]="true" 
+                        filterBy="band" 
+                        formControlName="band_grade">
+                        </p-dropdown>
+                    </div>
+                    <!-- <label class="form-label">Band Grade <span class="text-danger">*</span></label>
+                    <select class="form-select" formControlName="band_grade" placeholder="Select Band Grade">
+                        <option value="" disabled selected>Select Band Grade</option>
+                        <option *ngFor="let item of bandGrades" [value]="item.band">{{ item.band }}</option>
+                    </select> -->
+                    <div *ngIf="getFormControl('band_grade')?.invalid && (getFormControl('band_grade')?.dirty || getFormControl('band_grade')?.touched)" class="text-danger small">
+                        <span *ngIf="getFormControl('band_grade')?.errors?.['required']">Please Select Band Grade</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Joining Date<span class="text-danger">*</span></label>
+                    <div>
+                        <p-calendar
+                        #calendar1 (keydown)="calendar1.showOverlay()" appDisableKeys
+                        formControlName="joining_date" [showTime]="false" appendTo="body"
+                        dateFormat="dd/mm/yy" placeholder="Select joining date" [maxDate]="maxStartDate"></p-calendar>
+                    </div>
+                    <!-- <input type="date" class="form-control" formControlName="joining_date" placeholder="Select Joining Date" [max]="todayDate"> -->
+                    <div *ngIf="getFormControl('joining_date')?.invalid && (getFormControl('joining_date')?.dirty || getFormControl('joining_date')?.touched)" class="text-danger small">
+                        <span *ngIf="getFormControl('joining_date')?.errors?.['required']">Please Select Joining Date</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="iconInput" class="form-label">Manager</label>                                                    
+                    <div>
+                        <p-dropdown 
+                        [options]="managerList" 
+                        optionLabel="name" 
+                        optionValue="name"
+                        placeholder="Select Manager" 
+                        [filter]="true" 
+                        filterBy="name" 
+                        formControlName="manager">
+                        </p-dropdown>
+                    </div>
+                    <!-- <label class="form-label">Manager <span class="text-danger">*</span></label>
+                    <select class="form-select" formControlName="manager" placeholder="Manager">
+                        <option value="" disabled selected>Manager</option>
+                        <option *ngFor="let item of managerList" [value]="item.name">{{ item.name }}</option>
+                    </select> -->
+                    <div *ngIf="getFormControl('manager')?.invalid && (getFormControl('manager')?.dirty || getFormControl('manager')?.touched)" class="text-danger small">
+                        <span *ngIf="getFormControl('manager')?.errors?.['required']">Please Select Manager</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Status <span class="text-danger">*</span></label>
+                    <select class="form-select" formControlName="status" placeholder="Select Status">
+                        <option value="" disabled selected>Select Status</option>
+                        <option *ngFor="let status of statusList" [value]="status.value">{{ status.name }}</option>
+                    </select>
+                    <div *ngIf="getFormControl('status')?.invalid && (getFormControl('status')?.dirty || getFormControl('status')?.touched)" class="text-danger small">
+                        <span *ngIf="getFormControl('status')?.errors?.['required']">Please Select Status</span>
+                    </div>
+                </div>
+
+                <div class="col-12 text-center mt-4">
+                    <button type="button" class="btn btn-secondary me-2" (click)="back()">Cancel</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!employeeForm.valid" (click)="onSubmit()">{{ buttonValue }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,112 @@
+.emp-dashboard .card-header {
+    background-color: #5c636a !important;
+  }
+
+.emp-dashboard  .mt-30 {
+    margin-top: 30px;
+}
+
+.emp-dashboard .year-section {
+    display: flex;
+    flex-direction: row;
+}
+
+.emp-dashboard .select-year {
+    margin-top: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+::ng-deep .emp-dashboard p-dropdown p-overlay ul.p-dropdown-items {
+    padding-left: 0rem !important;
+}
+
+// ::ng-deep .p-datatable-thead tr th {
+//     background-color: #5c636a !important;
+//     color: white !important;
+// }
+.utilization-table {
+    border: 1px solid #e9ebec;
+}
+::ng-deep .pending-table .p-datatable-header {
+    display: flex;
+}
+
+.chart-header,
+::ng-deep .pending-table .p-datatable-header,
+.utilization-table tr.header {
+    background-color: #5c636a !important;
+    color: white !important;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+::ng-deep .pending-table .p-datatable-thead tr th,
+::ng-deep .pending-table .p-datatable-tbody tr td,
+.utilization-table tr.tbody {
+    font-size: 12px;
+}
+
+::ng-deep .pending-table .p-datatable-thead tr th {
+    font-weight: bold;
+}
+
+::ng-deep .pending-table .p-datatable-header .table-title {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+::ng-deep .pending-table .p-datatable-tbody tr td.add-entry {
+    cursor: pointer;
+    color: #D95C9B;
+}
+
+.oending-tale .search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 300px;
+
+    .search-icon {
+        position: absolute;
+        left: 10px;
+        font-size: 10px;
+        color: gray;
+    }
+
+    input {
+        font-size: 12px;
+        padding-left: 30px !important;
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid gray;
+        padding: 5px;
+    }           
+}
+
+::ng-deep  p-chart canvas {
+    width: 800px !important;
+    height: 400px !important;
+}
+
+.threshold-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    // margin-top: 1rem;
+    font-size: 12px;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .color-box {
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+  }  
