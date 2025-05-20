@@ -1,20 +1,34 @@
 # using node version 22
-FROM node:22.13.1-alpine
+#FROM node:22.13.1-alpine
 # workinhg directory in the container
-WORKDIR /app
+#WORKDIR /app
 #copying package files into the container
-COPY package*.json ./
+#COPY package*.json ./
 #to install the dependencies
-RUN npm install --legacy-peer-deps
+#RUN npm install --legacy-peer-deps
 #copying the entire project directory into the container
-COPY . .
+#COPY . .
 #setting up environment variable port
-ENV PORT=8301
+#ENV PORT=8301
 #build the angular app - for build and run locally first
-RUN npm run build
+#RUN npm run build
 #installing simple server to serve teh built app
-RUN npm install -g serve
+#RUN npm install -g serve
 #expose the port number for outside
-EXPOSE 8301
+#EXPOSE 8301
 #command to serve the built Angular app
+#CMD ["serve", "-s", "dist/angularmaterial", "-l", "8301"]
+
+
+FROM node:22-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install --legacy-peer-deps
+COPY . .
+ENV PORT=8301
+RUN npm run build
+RUN npm install -g serve
+EXPOSE 8301
+#CMD["npm", "start"]
 CMD ["serve", "-s", "dist/angularmaterial", "-l", "8301"]
+
