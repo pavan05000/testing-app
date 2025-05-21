@@ -12,6 +12,8 @@ spec:
       labels:
         app: test-fe
     spec:
+      imagePullSecrets:
+        - name: regcred
       containers:
       - name: your-app
         image: pavan050/fe-app:latest
