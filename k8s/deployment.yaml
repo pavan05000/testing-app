@@ -6,7 +6,7 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: testing-fe
+      app: test-fe
   template:
     metadata:
       labels:
@@ -15,6 +15,14 @@ spec:
       containers:
       - name: your-app
         image: pavan050/fe-app:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8301
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "250m"
 
