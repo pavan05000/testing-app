@@ -11,5 +11,3 @@ spec:
       port: 8301
       targetPort: 8301
       nodePort: 30001
-
-
