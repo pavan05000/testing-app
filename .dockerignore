@@ -1,0 +1,29 @@
+# Ignore node_modules (they get rebuilt in image)
+node_modules
+
+# Ignore Git and editor configs
+.git
+.gitignore
+*.swp
+*.swo
+
+# Ignore Docker-related files
+Dockerfile
+.dockerignore
+
+# Ignore Kubernetes files
+k8s/
+argocd.yaml
+
+# Ignore local build output (already rebuilt in image)
+dist/
+coverage/
+out-tsc/
+
+# Ignore readme/docs
+README.md
+
+# Ignore logs/temp files
+*.log
+*.tmp
+
