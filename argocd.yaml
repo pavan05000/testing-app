@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/pavan05000/testing-app.git
     targetRevision: HEAD
-    path: env/test
+    path: k8s/env/test
   destination:
     server: https://kubernetes.default.svc
     namespace: test-env
