@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mgmt-frontend-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/pavan05000/testing-app.git
+    targetRevision: project
+    path: k8s/env/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev-env
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
