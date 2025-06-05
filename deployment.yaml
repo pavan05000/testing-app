@@ -7,12 +7,12 @@ metadata:
     app: mgt-frontend
     env: test
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: mgt-frontend
-      env: test
-  template:
+ replicas: 2
+ selector:
+   matchLabels:
+     app: mgt-frontend
+     env: test
+ template:
     metadata:
       labels:
         app: mgt-frontend
@@ -24,6 +24,19 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8301
+          livenessProbe:  #is the app is dead or running
+            # If the app is dead, it will be restarted by the kubelet
+            httpGet:
+              path: /
+              port: 8301
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          readinessProbe:  # is the app ready to receive traffic
+            httpGet:
+              path: /
+              port: 8301
+            initialDelaySeconds: 0
+            periodSeconds: 5
           resources:
             requests:
               memory: "128Mi"
@@ -31,4 +44,3 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
-
