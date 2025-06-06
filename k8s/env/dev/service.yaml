@@ -12,5 +12,6 @@ spec:
     env: dev
   ports:
     - port: 80
-      targetPort: 8302
+      targetPort: 8301
+      nodePort: 8302
   type: NodePort

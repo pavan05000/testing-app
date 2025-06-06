@@ -12,5 +12,6 @@ spec:
     env: prod
   ports:
     - port: 80
-      targetPort: 8303
+      targetPort: 8301
+      nodePort: 8303
   type: NodePort
